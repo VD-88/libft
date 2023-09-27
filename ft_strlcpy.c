@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	index;
 
-	if (size == 0)
-		return (0);
+	if (dest == NULL || size == 0)
+		return (ft_strlen((char *)src));
 	index = 0;
 	while (index < size - 1 && src[index])
 	{
@@ -25,5 +26,5 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		index++;
 	}
 	dest[index] = 0;
-	return (index);
+	return (ft_strlen((char *)src));
 }

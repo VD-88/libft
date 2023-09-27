@@ -12,18 +12,20 @@
 
 #include <stdlib.h>
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	char	*ch;
 
-	ch = str;
+	ch = (char *)str;
 	while (*ch)
 	{
-		if (*ch == c)
+		if (*ch == (char)c)
 		{
 			return (ch);
 		}
 		ch++;
 	}
-	return (NULL);
+	if (*ch == (char)c)
+		return (ch);
+	return (0);
 }
