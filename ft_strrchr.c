@@ -22,11 +22,11 @@ char	*ft_strrchr(const char *str, int c)
 		str++;
 		len++;
 	}
-	while (len >= 0)
+	while (len != 0)
 	{
 		if (*str == c)
 		{
-			return (str);
+			return ((char *)str);
 		}
 		str--;
 		len--;

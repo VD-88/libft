@@ -30,11 +30,12 @@ SRC_FILES = ft_atoi.c \
 			ft_tolower.c \
 			ft_toupper.c \
 
-SRC = 		$(addprefix $(SRC_DIR), $(SRC_FILES))
+SRCS = 		$(addprefix $(SRC_DIR), $(SRC_FILES))
 O_FILES = 	$(SRCS:.c=.o)
 
 # Compiler settings
-CC = CCAR = ar -rcs
+CC = cc
+AR = ar -rcs
 CFLAGS = -Wall -Wextra -Werror
 INC_FLAGS = -I $(INC_DIR)
 
@@ -44,10 +45,10 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): 	$(O_FILES)
-			$(AR) $(NAME) $(O_FILES)
+			$(AR) $(NAME) $^
 
 .c.o:
-			$(CC) $(CFLAGS) -c $(INC_FLAGS) $< -o ${<:.c-.0}
+			$(CC) $(CFLAGS) -c $(INC_FLAGS) $< -o ${<:.c=.o}
 
 clean:
 			rm -rf $(O_FILES)

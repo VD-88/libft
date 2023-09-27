@@ -19,12 +19,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trim;
 	size_t	len;
 
-	while (ft_strchr(set, *s1))
+	while (ft_strchr((char *)set, *s1))
 	{
 		s1++;
 	}
-	len = ft_strlen(s1);
-	while (ft_strchr(set, s1[len - 1]))
+	len = ft_strlen((char *)s1);
+	while (ft_strchr((char *)set, s1[len - 1]))
 	{
 		len--;
 	}

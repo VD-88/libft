@@ -19,12 +19,12 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	char	*temp2;
 
 	temp = dest;
-	temp2 = src;
+	temp2 = (char *)src;
 	ind = 0;
 	if (src < dest)
 	{
 		ind = ind + len;
-		while (ind >= 0)
+		while (ind != 0)
 		{
 			temp[ind] = temp2[ind];
 			ind--;
