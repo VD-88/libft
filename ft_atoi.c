@@ -19,8 +19,10 @@ int	ft_atoi(const char *ptr)
 	i = 0;
 	sign = 1;
 	numb = 0;
-	while (ptr[i] < '!')
+	while (ptr[i] == ' ' || (ptr[i] >= 9 && ptr[i] <= 13 ))
+	{
 		i++;
+	}
 	if (ptr[i] == '-' || ptr[i] == '+')
 	{
 		if (ptr[i] == '-')
@@ -31,10 +33,6 @@ int	ft_atoi(const char *ptr)
 	{
 		numb = numb * 10 + (ptr[i] - 48);
 		i++;
-		if (ptr[i] < '0' || ptr[i] > '9')
-		{
-			return (numb * sign);
-		}
 	}
-	return (0);
+	return (numb * sign);
 }

@@ -12,21 +12,18 @@
 
 #include <stdlib.h>
 
-void	*ft_memchr(void *buf, int ch, size_t length)
+void	*ft_memchr(const void *buf, int ch, size_t length)
 {
-	size_t	i;
-	char	*c;
+	unsigned char	*c;
 
-	c = buf;
-	i = 0;
+	c = (void *)buf;
 	if (length == 0)
 		return (NULL);
-	while (*c && i < length)
+	while (length--)
 	{
-		if (*c == ch)
+		if (*c == (unsigned char)ch)
 			return (c);
 		c++;
-		i++;
 	}
 	return (NULL);
 }

@@ -21,11 +21,11 @@ int	ft_memcmp(const char *ptr1, const char *ptr2, size_t n)
 		return (0);
 	while (i < n)
 	{
-		if (ptr1[i] > ptr2[i])
+		if ((unsigned char)ptr1[i] > (unsigned char)ptr2[i])
 			return (1);
-		if (ptr1[i] < ptr2[i])
+		if ((unsigned char)ptr1[i] < (unsigned char)ptr2[i])
 			return (-1);
-		if (ptr1[i] == ptr2[i])
+		if ((unsigned char)ptr1[i] == (unsigned char)ptr2[i])
 			i++;
 	}
 	return (0);

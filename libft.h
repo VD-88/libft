@@ -23,7 +23,7 @@ int		ft_isalpha(int x);
 int		ft_isascii(int a);
 int		ft_isdigit(int y);
 int		ft_isprint(int x);
-void	*ft_memchr(void *buf, int ch, size_t length);
+void	*ft_memchr(const void *buf, int ch, size_t length);
 int		ft_memcmp(const char *ptr1, const char *ptr2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t l);
 void	*ft_memmove(void *dest, const void *src, size_t len);
