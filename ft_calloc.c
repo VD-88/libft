@@ -18,7 +18,7 @@ void	*ft_calloc(size_t n_elem, size_t elem_size)
 	size_t	len;
 
 	len = n_elem * elem_size;
-	if (len % n_elem != elem_size)
+	if (len / n_elem != elem_size)
 		return (NULL);
 	ptr = malloc(len);
 	if (ptr != 0)
