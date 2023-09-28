@@ -31,6 +31,9 @@ SRC_FILES = ft_atoi.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
 
 SRCS = 		$(addprefix $(SRC_DIR), $(SRC_FILES))
 O_FILES = 	$(SRCS:.c=.o)
