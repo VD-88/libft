@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdukhani <vdukhani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 12:59:30 by vdukhani          #+#    #+#             */
-/*   Updated: 2023/09/27 16:38:17 by vdukhani         ###   ########.fr       */
+/*   Created: 2023/09/28 19:23:36 by vdukhani          #+#    #+#             */
+/*   Updated: 2023/09/28 19:24:49 by vdukhani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t n_elem, size_t elem_size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ptr;
-	size_t	len;
-
-	len = n_elem * elem_size;
-	if (n_elem == 0 || elem_size == 0)
-		len = 0;
-	else if (len / n_elem != elem_size)
-		return (NULL);
-	ptr = malloc(len);
-	if (ptr != 0)
+	if (n == -2147483648)
 	{
-		while (len)
-		{
-			ptr[len - 1] = 0;
-			len--;
-		}
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (ptr);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+	}
+	ft_putchar_fd((n % 10) + '0', fd);
 }

@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdukhani <vdukhani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 12:59:30 by vdukhani          #+#    #+#             */
-/*   Updated: 2023/09/27 16:38:17 by vdukhani         ###   ########.fr       */
+/*   Created: 2023/09/28 19:14:31 by vdukhani          #+#    #+#             */
+/*   Updated: 2023/09/28 19:14:52 by vdukhani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t n_elem, size_t elem_size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*ptr;
-	size_t	len;
-
-	len = n_elem * elem_size;
-	if (n_elem == 0 || elem_size == 0)
-		len = 0;
-	else if (len / n_elem != elem_size)
-		return (NULL);
-	ptr = malloc(len);
-	if (ptr != 0)
-	{
-		while (len)
-		{
-			ptr[len - 1] = 0;
-			len--;
-		}
-	}
-	return (ptr);
+	write(fd, s, ft_strlen(s));
 }
