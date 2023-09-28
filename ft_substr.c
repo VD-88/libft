@@ -11,13 +11,18 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	ind;
 
-	sub = malloc(len + 1);
+	if (start >= (unsigned int)ft_strlen((char *)s))
+		return (ft_strdup(""));
+	if (len > (unsigned int)ft_strlen((char *)s) - start)
+		len = (unsigned int)ft_strlen((char *)s) - start;
+	sub = malloc(sizeof(char) * (len + 1));
 	if (sub == 0)
 		return (NULL);
 	ind = 0;

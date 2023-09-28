@@ -79,22 +79,9 @@ char	**ft_split(char const *s, char c)
 		if (mem_check(arr, i))
 			return (NULL);
 		ft_memcpy(arr[i], s, sub_len(s, c));
-		arr[i++][sub_len(s, c) + 1] = 0;
+		arr[i][sub_len(s, c)] = 0;
 		s += sub_len(s, c);
+		i++;
 	}
 	return (arr);
 }
-/*
-int main()
-{
-	char *s = "aa111a2222a33aaa";
-	char **a = ft_split(s, 'a');
-	int i = 0;
-	printf("\n");
-	while (i < 4)
-	{
-		printf("%s\n", ft_split(s, 'a')[i]);
-		i++;
-	}
-}
-*/
