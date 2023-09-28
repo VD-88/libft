@@ -18,7 +18,7 @@
 int		ft_atoi(const char *ptr);
 void	ft_bzero(void *dest, size_t n);
 void	*ft_calloc(size_t n_elem, size_t elem_size);
-int		ft_isalum(int c);
+int		ft_isalnum(int c);
 int		ft_isalpha(int x);
 int		ft_isascii(int a);
 int		ft_isdigit(int y);
@@ -42,5 +42,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_itoa(int n);
 
 #endif
